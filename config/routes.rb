@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'about', to: 'home#about'
 
   devise_for :users
