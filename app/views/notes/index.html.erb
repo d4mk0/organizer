@@ -1,0 +1,35 @@
+<%- model_class = Note -%>
+<div class="page-header">
+  <h1>Заметки</h1>
+  <%= link_to 'Создать заметку',
+              new_note_path,
+              :class => 'btn btn-primary' %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:text) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= link_to note.id, note_path(note) %></td>
+        <td><%= link_to note.text.truncate(60), note_path(note) %></td>
+        <td><%= link_to (formatted_date note.created_at), note_path(note) %></td>
+        <td>
+          <%= link_to 'Редактировать',
+                      edit_note_path(note), :class => 'btn btn-default btn-xs' %>
+          <%= link_to 'Удалить',
+                      note_path(note),
+                      :method => :delete,
+                      :data => { :confirm => 'Вы уверены?' },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

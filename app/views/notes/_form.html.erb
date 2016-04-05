@@ -1,0 +1,7 @@
+<%= simple_form_for @note, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :text %>
+
+  <%= f.button :submit, :class => 'btn-primary', value: 'Сохранить' %>
+  <%= link_to 'К заметкам',
+                notes_path, :class => 'btn btn-default' %>
+<% end %>

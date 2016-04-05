@@ -1,0 +1,19 @@
+<%- model_class = Note -%>
+<div class="page-header">
+  <h1>Заметка #<%= @note.id %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
+  <dd><%= @note.text %></dd>
+</dl>
+
+<%= link_to 'К заметкам',
+              notes_path, :class => 'btn btn-default'  %>
+<%= link_to 'Редактировать',
+              edit_note_path(@note), :class => 'btn btn-default' %>
+<%= link_to 'Удалить',
+              note_path(@note),
+              :method => 'delete',
+              :data => { :confirm => 'Вы уверены?' },
+              :class => 'btn btn-danger' %>

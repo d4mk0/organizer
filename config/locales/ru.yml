@@ -21,3 +21,7 @@ ru:
         title: Заголовок
         start_at: Время начала
         description: Описание
+      note:
+        text: Текст
+        created_at: Время создания
+        id: '#'
