@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :notes
   resources :events
   get 'about', to: 'home#about'
+  get 'calculator', to: 'home#calculator'
 
   devise_for :users
   root 'home#about'
