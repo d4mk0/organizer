@@ -49,9 +49,11 @@
             <a class="navbar-brand" href="/">Органайзер</a>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
               <ul class="nav navbar-nav">
-                <li><%= link_to "События", events_path  %></li>
-                <li><%= link_to "Заметки", notes_path  %></li>
-                <li><%= link_to "Калькулятор", calculator_path  %></li>
+                <% if current_user.present? %>
+                  <li><%= link_to "События", events_path  %></li>
+                  <li><%= link_to "Заметки", notes_path  %></li>
+                  <li><%= link_to "Калькулятор", calculator_path  %></li>
+                <% end %>
                 <li><% if current_user.present? %>
                   <%= link_to "Выход", destroy_user_session_path, method: :delete  %>
                 <% else %>
